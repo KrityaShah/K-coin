@@ -47,6 +47,20 @@ export class TransactionService {
     return transaction.save();
   }
 
+  async createCoinbase(
+    minerWallet: string,
+    amount: number,
+    sender: string,
+  ): Promise<TransactionDocument> {
+    const coinbase = new this.transactionModel({
+      sender,
+      recipient: minerWallet,
+      amount,
+      status: TransactionStatus.PENDING,
+    });
+    return coinbase.save();
+  }
+
   async getPending(): Promise<TransactionDocument[]> {
     return this.transactionModel
       .find({ status: TransactionStatus.PENDING })

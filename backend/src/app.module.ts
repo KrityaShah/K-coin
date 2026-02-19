@@ -6,6 +6,7 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { TransactionModule } from './transaction/transaction.module';
+import { BlockModule } from './block/block.module';
 
 @Module({
   imports: [
@@ -13,7 +14,8 @@ import { TransactionModule } from './transaction/transaction.module';
     MongooseModule.forRoot(process.env.MONGO_URI || 'mongodb://localhost:27017/kcoin'),
     UserModule,
     AuthModule,
-  TransactionModule],
+  TransactionModule,
+  BlockModule],
   controllers: [AppController],
   providers: [AppService],
 })
