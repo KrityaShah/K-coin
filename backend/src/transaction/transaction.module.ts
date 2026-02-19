@@ -16,5 +16,6 @@ import { UserModule } from 'src/user/user.module';
   ],
   controllers: [TransactionController],
   providers: [TransactionService],
+  exports: [TransactionService],
 })
 export class TransactionModule {}
